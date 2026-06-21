@@ -110,10 +110,10 @@ const SOCIAL_CHANNELS = [
 ];
 
 const PROJECT_OPTIONS = [
+  "Project DEEPAK / 102 RCC",
   "Project BEACON / 94 RCC",
   "Project HIMANK / 81 RCC",
   "Project VIJAYAK / 76 RCC",
-  "Project DEEPAK / 102 RCC",
   "Project DANTEK / Bhutan",
 ];
 
