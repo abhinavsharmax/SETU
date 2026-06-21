@@ -4,7 +4,7 @@ import { Info, Signal, Shield, ShieldAlert, Cpu } from "lucide-react";
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#080b11] text-slate-100 font-sans flex flex-col md:flex-row justify-center items-center p-4 md:p-8 lg:p-12 gap-8 lg:gap-16 relative overflow-hidden">
-      
+
       {/* Modern Motion AI Gradient Background (Gemini-style) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute top-[-10%] left-[-10%] w-[55vw] h-[55vw] rounded-full bg-[#8ab4f8]/10 blur-[130px] animate-blob-1" />
@@ -12,7 +12,7 @@ export default function Home() {
         <div className="absolute top-[30%] right-[15%] w-[45vw] h-[45vw] rounded-full bg-[#ffb1bd]/8 blur-[120px] animate-blob-3" />
         <div className="absolute bottom-[20%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#2dd4bf]/8 blur-[130px] animate-blob-1" />
       </div>
-      
+
       {/* Left Column: Product Dashboard & Technical Context (Desktop Only) */}
       <div className="hidden lg:flex flex-col max-w-lg space-y-6 animate-fade-in py-8 z-10">
         <div className="space-y-3">
@@ -20,7 +20,7 @@ export default function Home() {
             <Shield className="w-3.5 h-3.5" />
             Official BRO Digital Initiative
           </div>
-          
+
           <h1 className="text-4xl font-extrabold tracking-tight text-white leading-tight">
             Border Roads Organisation
             <span className="block mt-1 text-transparent bg-clip-text bg-gradient-to-r from-[#8ab4f8] via-[#ecb2ff] to-[#ffb1bd]">
@@ -30,7 +30,7 @@ export default function Home() {
           <p className="text-[#a8c7fa] text-xs font-bold uppercase tracking-widest leading-none mt-1.5">
             Seamless Engagement & Transit Utility
           </p>
-          
+
           <p className="text-slate-400 text-sm leading-relaxed pt-1.5">
             A production-ready, mobile-first interface built for citizens to express gratitude, report feedback, and share transit conditions directly with the formations securing and building India's border infrastructure.
           </p>
@@ -91,7 +91,7 @@ export default function Home() {
       <div className="relative flex-shrink-0 animate-scale-up">
         {/* Smartphone Shell Frame (only visible on md screens and up) */}
         <div className="hidden sm:block absolute inset-0 -m-3 bg-slate-950 rounded-[40px] border-4 border-slate-800 shadow-2xl pointer-events-none z-0" />
-        
+
         {/* Screen Notch */}
         <div className="hidden sm:block absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-950 rounded-b-2xl z-20 pointer-events-none" />
 
@@ -100,7 +100,7 @@ export default function Home() {
           <FeedbackPortal />
         </div>
       </div>
-      
+
     </main>
   );
 }
