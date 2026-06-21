@@ -17,7 +17,8 @@ import {
   Globe,
   Star,
   Camera,
-  X as CloseIcon
+  X as CloseIcon,
+  Shield
 } from "lucide-react";
 
 // Custom SVG Icons for Social Channels to avoid lucide-react brand dependency issues
@@ -247,8 +248,8 @@ export default function FeedbackPortal() {
 
   return (
     <div className={`w-full max-w-md mx-auto min-h-[820px] shadow-lg rounded-3xl overflow-hidden flex flex-col transition-all duration-300 relative ${highContrast
-        ? "bg-black border-4 border-yellow-400 text-yellow-400"
-        : "bg-white text-slate-800 border border-slate-200/80"
+      ? "bg-black border-4 border-yellow-400 text-yellow-400"
+      : "bg-white text-slate-800 border border-slate-200/80"
       }`}>
       {/* Tricolor Accent Bar */}
       {!highContrast && (
@@ -261,8 +262,8 @@ export default function FeedbackPortal() {
 
       {/* Accessibility Bar */}
       <div className={`px-4 py-2 flex items-center justify-between text-[11px] transition-colors duration-200 border-b ${highContrast
-          ? "bg-yellow-400 text-black border-yellow-500 font-bold"
-          : "bg-[#f8f9fa] text-slate-600 border-slate-200/60"
+        ? "bg-yellow-400 text-black border-yellow-500 font-bold"
+        : "bg-[#f8f9fa] text-slate-600 border-slate-200/60"
         }`}>
         <div className="flex items-center gap-1.5 font-medium tracking-wide">
           <Globe className="w-3.5 h-3.5 stroke-[1.5]" />
@@ -272,8 +273,8 @@ export default function FeedbackPortal() {
           <button
             onClick={() => setAudioFeedback(!audioFeedback)}
             className={`flex items-center gap-1 transition-all ${audioFeedback
-                ? highContrast ? "underline font-extrabold text-black" : "text-blue-600 font-semibold"
-                : "opacity-80 hover:opacity-100"
+              ? highContrast ? "underline font-extrabold text-black" : "text-blue-600 font-semibold"
+              : "opacity-80 hover:opacity-100"
               }`}
             aria-label="Toggle Screen Reader Voice Prompts"
             type="button"
@@ -284,8 +285,8 @@ export default function FeedbackPortal() {
           <button
             onClick={() => setHighContrast(!highContrast)}
             className={`flex items-center gap-1 transition-all ${highContrast
-                ? "underline font-extrabold text-black"
-                : "opacity-80 hover:opacity-100"
+              ? "underline font-extrabold text-black"
+              : "opacity-80 hover:opacity-100"
               }`}
             aria-label="Toggle Outdoor Glare Mode"
             type="button"
@@ -299,59 +300,60 @@ export default function FeedbackPortal() {
       {/* Main Container */}
       <div className="flex-1 flex flex-col justify-between">
         {!isSubmitted ? (
-          <form onSubmit={handleSubmit} className="flex-1 flex flex-col justify-between p-5">
-            <div className="space-y-5">
-              {/* Header: National Emblem & BRO Crest */}
-              <div className={`flex items-center justify-between pb-4 border-b ${highContrast ? "border-yellow-400 border-dashed" : "border-slate-100"
-                }`}>
-                <div className="flex items-center gap-3.5">
-                  {/* Stylized National Emblem SVG */}
-                  <div className="flex flex-col items-center justify-center" aria-hidden="true">
-                    <svg className={`w-8 h-10 ${highContrast ? "fill-yellow-400" : "fill-slate-800"}`} viewBox="0 0 100 130">
-                      {/* Stylized Ashoka Pillar Lion Capital */}
-                      <path d="M 50 15 C 55 15, 60 18, 62 25 C 64 30, 64 45, 60 52 C 57 56, 52 58, 50 58 C 48 58, 43 56, 40 52 C 36 45, 36 30, 38 25 C 40 18, 45 15, 50 15 Z" />
-                      <circle cx="50" cy="72" r="12" strokeWidth="2" className={highContrast ? "stroke-black" : "stroke-slate-800"} fill="none" />
-                      <path d="M 50 60 L 50 84 M 38 72 L 62 72 M 41.5 63.5 L 58.5 80.5 M 41.5 80.5 L 58.5 63.5" strokeWidth="1.2" className={highContrast ? "stroke-black" : "stroke-slate-800"} />
-                      <rect x="35" y="88" width="30" height="6" rx="2" />
-                      <path d="M 45 98 L 55 98 M 40 104 L 60 104 M 35 110 L 65 110" strokeWidth="2" strokeLinecap="round" className={highContrast ? "stroke-yellow-400" : "stroke-amber-600"} />
+          <form onSubmit={handleSubmit} className="flex-1 flex flex-col justify-between overflow-hidden">
+            {/* Header: Distinct Government Header Panel */}
+            <div className={`px-4.5 py-3.5 border-b transition-colors duration-200 ${highContrast
+              ? "bg-black border-yellow-400 border-dashed"
+              : "bg-slate-50 border-slate-200/85"
+            }`}>
+              <div className="flex items-center justify-between">
+                {/* Left Side: BRO Crest & bold text "BRO" */}
+                <div className="flex items-center gap-2">
+                  <div className={`p-1.5 rounded-xl border flex flex-col items-center justify-center w-9 h-9 ${highContrast ? "border-yellow-400 bg-black" : "border-slate-200 bg-white shadow-sm"
+                    }`}>
+                    <svg className={`w-5 h-5 ${highContrast ? "stroke-yellow-400" : "stroke-slate-700"}`} viewBox="0 0 48 48" fill="none" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M 24 4 L 40 10 V 22 C 40 33, 33 41, 24 44 C 15 41, 8 33, 8 22 V 10 L 24 4 Z" />
+                      <path d="M 12 28 L 19 18 L 26 28" strokeWidth="2" />
+                      <path d="M 22 28 L 29 16 L 36 28" strokeWidth="2" />
+                      <path d="M 24 24 Q 22 34 26 40" strokeWidth="2.5" className={highContrast ? "stroke-yellow-400" : "stroke-[#FF9933]"} />
                     </svg>
-                    <span className={`text-[7px] font-bold tracking-tight text-center ${highContrast ? "text-yellow-400" : "text-slate-500"}`}>
-                      सत्यमेव जयते
-                    </span>
                   </div>
-
-                  {/* Label Text */}
-                  <div className="flex flex-col">
-                    <h1 className={`text-[10px] font-bold tracking-widest ${highContrast ? "text-yellow-400" : "text-slate-500 uppercase"}`}>
-                      GOVERNMENT OF INDIA
-                    </h1>
-                    <h2 className={`text-base font-extrabold tracking-tight leading-tight ${highContrast ? "text-yellow-400" : "text-slate-800"}`}>
-                      Border Roads Org
-                    </h2>
-                    <p className={`text-[11px] font-medium ${highContrast ? "text-yellow-400" : "text-slate-400"}`}>
-                      Citizen Feedback Portal
-                    </p>
-                  </div>
+                  <span className={`text-sm font-black tracking-wider ${highContrast ? "text-yellow-400" : "text-slate-800"}`}>
+                    BRO
+                  </span>
                 </div>
 
-                {/* Stylized BRO Crest SVG */}
-                <div className="flex items-center justify-center">
-                  <div className={`p-1.5 rounded-xl border flex flex-col items-center justify-center w-11 h-11 ${highContrast ? "border-yellow-400 bg-black" : "border-slate-200 bg-white"
-                    }`}>
-                    <svg className={`w-6 h-6 ${highContrast ? "stroke-yellow-400" : "stroke-slate-700"}`} viewBox="0 0 48 48" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M 24 4 L 40 10 V 22 C 40 33, 33 41, 24 44 C 15 41, 8 33, 8 22 V 10 L 24 4 Z" />
-                      <path d="M 12 28 L 19 18 L 26 28" strokeWidth="1.5" />
-                      <path d="M 22 28 L 29 16 L 36 28" strokeWidth="1.5" />
-                      <path d="M 24 24 Q 22 34 26 40" strokeWidth="2" className={highContrast ? "stroke-yellow-400" : "stroke-[#FF9933]"} />
-                    </svg>
-                  </div>
+                {/* Center Side: Title and tag */}
+                <div className="flex flex-col items-center text-center flex-1 px-2">
+                  <h2 className={`text-xs font-extrabold tracking-tight leading-tight ${highContrast ? "text-yellow-400" : "text-slate-800 uppercase"}`}>
+                    SETU System
+                  </h2>
+                  <p className={`text-[8px] font-bold uppercase tracking-wider scale-[0.9] mt-0.5 whitespace-nowrap ${highContrast ? "text-yellow-400" : "text-slate-455"}`}>
+                    Transit Engagement Utility
+                  </p>
+                </div>
+
+                {/* Right Side: National Emblem of India */}
+                <div className="flex flex-col items-center justify-center" aria-hidden="true">
+                  <svg className={`w-6 h-8 ${highContrast ? "fill-yellow-400" : "fill-slate-800"}`} viewBox="0 0 100 130">
+                    <path d="M 50 15 C 55 15, 60 18, 62 25 C 64 30, 64 45, 60 52 C 57 56, 52 58, 50 58 C 48 58, 43 56, 40 52 C 36 45, 36 30, 38 25 C 40 18, 45 15, 50 15 Z" />
+                    <circle cx="50" cy="72" r="12" strokeWidth="2.5" className={highContrast ? "stroke-black" : "stroke-slate-800"} fill="none" />
+                    <path d="M 50 60 L 50 84 M 38 72 L 62 72 M 41.5 63.5 L 58.5 80.5 M 41.5 80.5 L 58.5 63.5" strokeWidth="1.5" className={highContrast ? "stroke-black" : "stroke-slate-800"} />
+                    <rect x="35" y="88" width="30" height="6" rx="2" />
+                    <path d="M 45 98 L 55 98 M 40 104 L 60 104 M 35 110 L 65 110" strokeWidth="2.5" strokeLinecap="round" className={highContrast ? "stroke-yellow-400" : "stroke-amber-600"} />
+                  </svg>
                 </div>
               </div>
+            </div>
 
-              {/* Formation Dropdown Selector */}
-              <div className="relative">
-                <label className={`block text-[11px] font-semibold tracking-wide uppercase mb-1.5 ${highContrast ? "text-yellow-400" : "text-slate-500"
-                  }`}>
+            {/* Scrollable Form Body */}
+            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+              {/* Formation Dropdown Selector Card */}
+              <div className={`p-4 rounded-2xl border transition-all ${highContrast
+                ? "border-yellow-400 bg-black"
+                : "bg-[#f8fafc] border-[#e2e8f0]"
+              }`}>
+                <label className={`block text-[10px] font-extrabold tracking-wider uppercase mb-1.5 ${highContrast ? "text-yellow-400" : "text-slate-550"}`}>
                   Select Active Formation / Project
                 </label>
                 <div className="relative">
@@ -359,21 +361,21 @@ export default function FeedbackPortal() {
                     type="button"
                     onClick={() => setShowProjectDropdown(!showProjectDropdown)}
                     className={`w-full py-2.5 px-3.5 rounded-xl border flex items-center justify-between text-left transition-all ${highContrast
-                        ? "border-yellow-400 bg-black text-yellow-400 font-bold"
-                        : "border-slate-200 bg-white text-slate-800 hover:border-slate-300 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600/50"
-                      }`}
+                      ? "border-yellow-400 bg-black text-yellow-400 font-bold"
+                      : "border-slate-200 bg-white text-slate-800 hover:border-slate-350 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600/30"
+                    }`}
                     aria-expanded={showProjectDropdown}
                   >
                     <span className="text-sm font-semibold">{selectedProject}</span>
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-205 ${showProjectDropdown ? "rotate-180" : ""
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${showProjectDropdown ? "rotate-180" : ""
                       } ${highContrast ? "text-yellow-400" : "text-slate-500"}`} />
                   </button>
 
                   {showProjectDropdown && (
                     <div className={`absolute z-25 w-full mt-1 rounded-xl border shadow-lg max-h-52 overflow-y-auto ${highContrast
-                        ? "bg-black border-yellow-400 text-yellow-400"
-                        : "bg-white border-slate-200 text-slate-800"
-                      }`}>
+                      ? "bg-black border-yellow-400 text-yellow-400"
+                      : "bg-white border-slate-200 text-slate-800"
+                    }`}>
                       {PROJECT_OPTIONS.map((proj) => (
                         <button
                           key={proj}
@@ -384,9 +386,9 @@ export default function FeedbackPortal() {
                             if (audioFeedback) speakText(`Project selected: ${proj}`);
                           }}
                           className={`w-full text-left py-2.5 px-4 text-sm font-medium border-b border-slate-100 last:border-0 transition-colors ${highContrast
-                              ? "hover:bg-yellow-400 hover:text-black border-yellow-500/30"
-                              : "hover:bg-slate-50 border-slate-100/50"
-                            }`}
+                            ? "hover:bg-yellow-400 hover:text-black border-yellow-500/30"
+                            : "hover:bg-slate-50 border-slate-100/50"
+                          }`}
                         >
                           {proj}
                         </button>
@@ -396,17 +398,18 @@ export default function FeedbackPortal() {
                 </div>
               </div>
 
-              {/* Thin Line Division */}
-              <div className={`border-t ${highContrast ? "border-yellow-400 border-dashed" : "border-slate-100"}`} />
-
-              {/* Section 1: One-Tap Appreciation Matrix */}
-              <div>
+              {/* Section 1: Appreciation Category Card */}
+              <div className={`p-4 rounded-2xl border transition-all ${highContrast
+                ? "bg-black border-yellow-400"
+                : "bg-[#fffbeb] border-[#fde68a]"
+              }`}>
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className={`text-sm font-bold tracking-tight uppercase ${highContrast ? "text-yellow-400" : "text-slate-800"}`}>
+                  <h3 className={`text-[11px] font-extrabold tracking-wider uppercase ${highContrast ? "text-yellow-400" : "text-amber-900"}`}>
                     1. Appreciation Category
                   </h3>
-                  <span className={`text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full ${highContrast ? "bg-yellow-400 text-black" : "bg-blue-50 text-blue-600 font-semibold"
-                    }`}>Quick-Select</span>
+                  <span className={`text-[8px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full ${highContrast ? "bg-yellow-400 text-black" : "bg-amber-100 text-amber-800"}`}>
+                    Quick-Select
+                  </span>
                 </div>
 
                 <div className="grid grid-cols-1 gap-2">
@@ -418,42 +421,42 @@ export default function FeedbackPortal() {
                         key={opt.id}
                         type="button"
                         onClick={() => handlePillSelect(opt.id, opt.template)}
-                        className={`flex items-center gap-3 p-3 rounded-xl border text-left transition-all duration-200 ${isSelected
-                            ? highContrast
-                              ? "bg-yellow-400 text-black border-yellow-400 font-extrabold"
-                              : "bg-blue-50/50 border-blue-600 text-blue-900 ring-1 ring-blue-600/50 shadow-sm"
-                            : highContrast
-                              ? "bg-black text-yellow-400 border-yellow-400/50 hover:border-yellow-400"
-                              : "bg-white text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-50/50"
-                          }`}
+                        className={`flex items-center gap-3 p-2.5 rounded-xl border text-left transition-all duration-200 ${isSelected
+                          ? highContrast
+                            ? "bg-yellow-400 text-black border-yellow-400 font-extrabold"
+                            : "bg-white border-amber-500 text-amber-950 ring-1 ring-amber-500/30 shadow-sm"
+                          : highContrast
+                            ? "bg-black text-yellow-400 border-yellow-400/50 hover:border-yellow-400"
+                            : "bg-white/80 text-slate-750 border-slate-200 hover:border-slate-350 hover:bg-white"
+                        }`}
                         aria-pressed={isSelected}
                       >
                         <div className={`p-2 rounded-lg transition-all ${isSelected
-                            ? highContrast
-                              ? "bg-black text-yellow-400"
-                              : "bg-blue-600/10 text-blue-600"
-                            : highContrast
-                              ? "bg-yellow-400/20 text-yellow-400"
-                              : "bg-slate-100 text-slate-600"
-                          }`}>
-                          <IconComponent className="w-4 h-4 stroke-[1.5]" />
+                          ? highContrast
+                            ? "bg-black text-yellow-400"
+                            : "bg-amber-500 text-white"
+                          : highContrast
+                            ? "bg-yellow-400/20 text-yellow-400"
+                            : "bg-amber-50 text-amber-600"
+                        }`}>
+                          <IconComponent className="w-3.5 h-3.5 stroke-[2]" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-semibold truncate">{opt.label}</p>
-                          <p className={`text-[11px] truncate ${isSelected
-                              ? highContrast ? "text-black/80 font-bold" : "text-blue-700 font-medium"
-                              : "text-slate-400"
-                            }`}>Select preset message</p>
+                          <p className="text-xs font-bold truncate">{opt.label}</p>
+                          <p className={`text-[9px] truncate ${isSelected
+                            ? highContrast ? "text-black/80 font-bold" : "text-amber-800 font-semibold"
+                            : "text-slate-400"
+                          }`}>Select preset message</p>
                         </div>
                         <div className={`w-4 h-4 rounded-full border flex items-center justify-center flex-shrink-0 transition-all ${isSelected
-                            ? highContrast
-                              ? "border-black bg-black text-yellow-400"
-                              : "border-blue-600 bg-blue-600 text-white"
-                            : highContrast
-                              ? "border-yellow-400/30"
-                              : "border-slate-200"
-                          }`}>
-                          {isSelected && <Check className="w-3 h-3 stroke-[2.5]" />}
+                          ? highContrast
+                            ? "border-black bg-black text-yellow-400"
+                            : "border-amber-500 bg-amber-500 text-white"
+                          : highContrast
+                            ? "border-yellow-400/30"
+                            : "border-slate-200"
+                        }`}>
+                          {isSelected && <Check className="w-2.5 h-2.5 stroke-[3]" />}
                         </div>
                       </button>
                     );
@@ -461,19 +464,19 @@ export default function FeedbackPortal() {
                 </div>
               </div>
 
-              {/* Thin Line Division */}
-              <div className={`border-t ${highContrast ? "border-yellow-400 border-dashed" : "border-slate-100"}`} />
-
-              {/* Section 2: Experience Rating */}
-              <div>
-                <h3 className={`text-sm font-bold tracking-tight uppercase mb-3 ${highContrast ? "text-yellow-400" : "text-slate-800"}`}>
+              {/* Section 2: Transit Experience Rating Card */}
+              <div className={`p-4 rounded-2xl border transition-all ${highContrast
+                ? "bg-black border-yellow-400"
+                : "bg-[#f0f9ff] border-[#bae6fd]"
+              }`}>
+                <h3 className={`text-[11px] font-extrabold tracking-wider uppercase mb-3 ${highContrast ? "text-yellow-400" : "text-blue-900"}`}>
                   2. Transit Experience Rating
                 </h3>
 
-                <div className={`p-3.5 rounded-xl border flex flex-col items-center gap-2 transition-all ${highContrast
-                    ? "border-yellow-400 bg-black"
-                    : "bg-slate-50/50 border-slate-150"
-                  }`}>
+                <div className={`p-3 rounded-xl border flex flex-col items-center gap-2 transition-all ${highContrast
+                  ? "border-yellow-400 bg-black"
+                  : "bg-white/90 border-blue-200"
+                }`}>
                   <div className="flex items-center gap-3">
                     {[1, 2, 3, 4, 5].map((starIdx) => {
                       const isActive = starIdx <= (hoveredRating || rating);
@@ -489,25 +492,25 @@ export default function FeedbackPortal() {
                           }}
                           onMouseEnter={() => setHoveredRating(starIdx)}
                           onMouseLeave={() => setHoveredRating(0)}
-                          className="p-0.5 transition-transform active:scale-90 focus:outline-none cursor-pointer"
+                          className="p-0.5 transition-transform active:scale-95 focus:outline-none cursor-pointer"
                           aria-label={`Rate ${starIdx} stars out of 5: ${getRatingLabel(starIdx)}`}
                         >
                           <Star className={`w-7 h-7 transition-all ${isActive
-                              ? highContrast
-                                ? "text-yellow-400 fill-yellow-400"
-                                : "text-amber-500 fill-amber-500 stroke-amber-500"
-                              : highContrast
-                                ? "text-yellow-400/30 fill-none"
-                                : "text-slate-300 fill-none stroke-[1.5]"
-                            }`} />
+                            ? highContrast
+                              ? "text-yellow-400 fill-yellow-400"
+                              : "text-amber-500 fill-amber-500 stroke-amber-500"
+                            : highContrast
+                              ? "text-yellow-400/30 fill-none"
+                              : "text-slate-350 fill-none stroke-[1.5]"
+                          }`} />
                         </button>
                       );
                     })}
                   </div>
                   <div className={`text-xs font-semibold ${rating > 0
-                      ? highContrast ? "text-yellow-400" : "text-slate-700"
-                      : "text-slate-400"
-                    }`}>
+                    ? highContrast ? "text-yellow-400" : "text-slate-800"
+                    : "text-slate-500"
+                  }`}>
                     {rating > 0
                       ? `${rating} / 5 - ${getRatingLabel(rating)}`
                       : "Tap to select rating"
@@ -516,30 +519,31 @@ export default function FeedbackPortal() {
                 </div>
               </div>
 
-              {/* Thin Line Division */}
-              <div className={`border-t ${highContrast ? "border-yellow-400 border-dashed" : "border-slate-100"}`} />
-
-              {/* Section 3: Message & Supporting Photos */}
-              <div>
+              {/* Section 3: Message & Supporting Photos Card */}
+              <div className={`p-4 rounded-2xl border transition-all ${highContrast
+                ? "bg-black border-yellow-400"
+                : "bg-[#faf5ff] border-[#ebd4ff]"
+              }`}>
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className={`text-sm font-bold tracking-tight uppercase ${highContrast ? "text-yellow-400" : "text-slate-800"}`}>
+                  <h3 className={`text-[11px] font-extrabold tracking-wider uppercase ${highContrast ? "text-yellow-400" : "text-purple-900"}`}>
                     3. Message & Supporting Photos
                   </h3>
-                  <span className={`text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full ${highContrast ? "bg-yellow-400 text-black" : "bg-slate-100 text-slate-500 font-semibold"
-                    }`}>Optional</span>
+                  <span className={`text-[8px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full ${highContrast ? "bg-yellow-400 text-black" : "bg-purple-100 text-purple-750"}`}>
+                    Optional
+                  </span>
                 </div>
 
                 <div className={`rounded-xl border transition-all overflow-hidden ${highContrast
-                    ? "bg-black border-yellow-400"
-                    : "bg-white border-slate-200 focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600/50"
-                  }`}>
+                  ? "bg-black border-yellow-400"
+                  : "bg-white border-slate-200 focus-within:border-purple-400 focus-within:ring-1 focus-within:ring-purple-400/30"
+                }`}>
                   {/* Textarea */}
                   <div className="relative">
                     <textarea
                       value={customFeedback}
                       onChange={handleTextareaChange}
-                      className={`w-full min-h-[90px] max-h-[140px] p-3.5 text-sm resize-none bg-transparent focus:outline-none placeholder:text-slate-400/80 ${highContrast ? "text-yellow-400 placeholder:text-yellow-400/50" : "text-slate-800"
-                        }`}
+                      className={`w-full min-h-[90px] max-h-[140px] p-3.5 text-sm resize-none bg-transparent focus:outline-none placeholder:text-slate-400 placeholder:text-slate-400/70 ${highContrast ? "text-yellow-400 placeholder:text-yellow-400/50" : "text-slate-800"
+                      }`}
                       placeholder="Add a message for our border heroes..."
                       maxLength={CHAR_LIMIT}
                       aria-label="Custom Feedback Message"
@@ -547,9 +551,9 @@ export default function FeedbackPortal() {
 
                     {/* Character Count */}
                     <div className={`absolute bottom-2.5 right-3 text-[9px] font-semibold select-none ${highContrast
-                        ? "text-yellow-400 bg-black/95 px-1 py-0.5 rounded"
-                        : "text-slate-400 bg-white/95 px-1 py-0.5 rounded"
-                      }`}>
+                      ? "text-yellow-400 bg-black/95 px-1 py-0.5 rounded"
+                      : "text-slate-400 bg-white/95 px-1 py-0.5 rounded"
+                    }`}>
                       {customFeedback.length} / {CHAR_LIMIT}
                     </div>
                   </div>
@@ -563,9 +567,9 @@ export default function FeedbackPortal() {
                       {/* Add Photo Button */}
                       {photos.length < 4 && (
                         <label className={`w-11 h-11 rounded-lg border border-dashed flex flex-col items-center justify-center cursor-pointer transition-all hover:scale-95 active:scale-90 ${highContrast
-                            ? "border-yellow-400 bg-black text-yellow-400 hover:bg-yellow-400/20"
-                            : "border-slate-300 bg-white hover:bg-slate-100/50 text-slate-500 hover:border-slate-400"
-                          }`}>
+                          ? "border-yellow-400 bg-black text-yellow-400 hover:bg-yellow-400/20"
+                          : "border-slate-300 bg-white hover:bg-slate-100/50 text-slate-555 hover:border-slate-400"
+                        }`}>
                           <Camera className="w-4 h-4 stroke-[1.5]" />
                           <span className="text-[7px] font-bold mt-0.5 uppercase tracking-wide">Add</span>
                           <input
@@ -588,9 +592,9 @@ export default function FeedbackPortal() {
                             type="button"
                             onClick={() => removePhoto(index)}
                             className={`absolute top-0.5 right-0.5 p-0.5 rounded-full shadow-sm hover:scale-110 active:scale-90 transition-all ${highContrast
-                                ? "bg-yellow-400 text-black"
-                                : "bg-red-500 text-white hover:bg-red-600"
-                              }`}
+                              ? "bg-yellow-400 text-black"
+                              : "bg-red-500 text-white hover:bg-red-600"
+                            }`}
                             aria-label={`Remove photo ${index + 1}`}
                           >
                             <CloseIcon className="w-2.5 h-2.5" />
@@ -599,8 +603,8 @@ export default function FeedbackPortal() {
                       ))}
 
                       {photos.length === 0 && (
-                        <span className="text-[11px] text-slate-400 font-medium ml-1">
-                          Attach up to 4 photos of road conditions.
+                        <span className="text-[11px] text-slate-450 font-medium ml-1">
+                          Attach up to 4 photos of conditions.
                         </span>
                       )}
                     </div>
@@ -608,12 +612,12 @@ export default function FeedbackPortal() {
                 </div>
               </div>
 
-              {/* Thin Line Division */}
-              <div className={`border-t ${highContrast ? "border-yellow-400 border-dashed" : "border-slate-100"}`} />
-
-              {/* Section 4: Stay Connected with BRO */}
-              <div>
-                <h3 className={`text-sm font-bold tracking-tight uppercase mb-3 ${highContrast ? "text-yellow-400" : "text-slate-800"}`}>
+              {/* Section 4: Stay Connected Card */}
+              <div className={`p-4 rounded-2xl border transition-all ${highContrast
+                ? "bg-black border-yellow-400"
+                : "bg-[#fff1f2] border-[#ffe4e6]"
+              }`}>
+                <h3 className={`text-[11px] font-extrabold tracking-wider uppercase mb-3 ${highContrast ? "text-yellow-400" : "text-rose-900"}`}>
                   4. Stay Connected
                 </h3>
 
@@ -628,24 +632,24 @@ export default function FeedbackPortal() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`flex-none snap-start w-[125px] p-2.5 rounded-xl border flex flex-col justify-between transition-all ${highContrast
-                            ? "bg-black border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black"
-                            : `bg-white border-slate-200 text-slate-800 hover:border-slate-300 hover:shadow-sm`
-                          }`}
+                          ? "bg-black border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black"
+                          : `bg-white/95 border-rose-100 text-slate-800 hover:border-rose-300 hover:shadow-sm`
+                        }`}
                       >
                         <div className="flex items-center justify-between">
-                          <div className={`p-1.5 rounded-lg ${highContrast ? "bg-yellow-400/20 text-yellow-400" : "bg-slate-50 text-slate-700"}`}>
+                          <div className={`p-1.5 rounded-lg ${highContrast ? "bg-yellow-400/20 text-yellow-400" : "bg-rose-50 text-rose-600"}`}>
                             <SocialIcon className="w-3.5 h-3.5" />
                           </div>
                           <span className={`text-[8px] font-bold uppercase px-1.5 py-0.5 rounded-full ${highContrast
-                              ? "bg-yellow-400 text-black"
-                              : "bg-slate-100 text-slate-700"
-                            }`}>
+                            ? "bg-yellow-400 text-black"
+                            : "bg-[#fff1f2] text-rose-750"
+                          }`}>
                             {social.action}
                           </span>
                         </div>
                         <div className="mt-2.5">
                           <p className="text-xs font-bold leading-tight">{social.name}</p>
-                          <p className="text-[9px] text-slate-400 font-medium truncate">{social.handle}</p>
+                          <p className="text-[9px] text-slate-450 font-medium truncate">{social.handle}</p>
                         </div>
                       </a>
                     );
@@ -655,42 +659,42 @@ export default function FeedbackPortal() {
             </div>
 
             {/* Thin Line Division before Button */}
-            <div className={`border-t my-4 ${highContrast ? "border-yellow-400 border-dashed" : "border-slate-100"}`} />
+            <div className={`border-t my-2.5 ${highContrast ? "border-yellow-400 border-dashed" : "border-slate-100"}`} />
 
-            {/* Primary Action Button */}
-            <div className="pt-1 bg-inherit">
+            {/* Primary Action Button & MoD Secure Footer */}
+            <div className="pt-1 bg-inherit px-4 pb-4">
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full py-3.5 rounded-full flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-wider transition-all duration-300 ${isSubmitting
-                    ? highContrast
-                      ? "bg-yellow-400/50 text-black border border-yellow-400 cursor-not-allowed"
-                      : "bg-slate-200 text-slate-400 cursor-not-allowed"
-                    : highContrast
-                      ? "bg-yellow-400 text-black hover:bg-yellow-300 active:scale-[0.98]"
-                      : "bg-blue-600 text-white hover:bg-blue-700 active:scale-[0.99] shadow-md shadow-blue-500/15"
-                  }`}
+                className={`w-full py-3 rounded-xl flex items-center justify-center text-xs font-extrabold uppercase tracking-wider transition-all duration-300 ${isSubmitting
+                  ? highContrast
+                    ? "bg-yellow-400/50 text-black border border-yellow-400 cursor-not-allowed"
+                    : "bg-slate-200 text-slate-450 cursor-not-allowed"
+                  : highContrast
+                    ? "bg-yellow-400 text-black hover:bg-yellow-300 active:scale-[0.98]"
+                    : "bg-[#1a73e8] text-white hover:bg-blue-700 active:scale-[0.99] shadow-md shadow-blue-500/10"
+                }`}
               >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="w-4.5 h-4.5 animate-spin text-inherit" />
-                    <span>Submitting...</span>
-                  </>
-                ) : (
-                  <>
-                    <Heart className="w-4.5 h-4.5 text-red-500 fill-red-500 stroke-[1.5]" />
-                    <span>Submit Kudos</span>
-                  </>
-                )}
+                {isSubmitting ? "Submitting..." : "Submit Feedback"}
               </button>
 
-              <div className="mt-4 flex flex-col items-center justify-center gap-0.5 text-slate-400 text-[9px] font-medium">
-                <p>Secure connection. Data sent directly to BRO.</p>
-                <div className="flex items-center gap-1.5 mt-1">
-                  <span>Portal Design:</span>
-                  <span className={`font-semibold ${highContrast ? "text-yellow-400" : "text-slate-700"}`}>Polardot</span>
-                  <span>&</span>
-                  <span className={`font-semibold ${highContrast ? "text-yellow-400" : "text-slate-700"}`}>S+UM Architects</span>
+              <div className="mt-4 flex flex-col items-center justify-center gap-2">
+                <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] font-bold tracking-wider uppercase border transition-all ${highContrast
+                  ? "bg-black border-yellow-400 text-yellow-400"
+                  : "bg-emerald-50/70 border-emerald-150 text-emerald-800"
+                }`}>
+                  <Shield className="w-3 h-3 text-emerald-600 fill-emerald-600/10" />
+                  <span>Secure Transmission to Ministry of Defence</span>
+                </div>
+                
+                <div className="flex flex-col items-center justify-center gap-0.5 text-slate-400 text-[8px] font-semibold select-none">
+                  <p>Encrypted data transmitted directly to official BRO systems.</p>
+                  <div className="flex items-center gap-1 mt-1 text-[7px] text-slate-400 font-medium">
+                    <span>Portal Design:</span>
+                    <span className={`font-semibold ${highContrast ? "text-yellow-400" : "text-slate-650"}`}>Polardot</span>
+                    <span>&</span>
+                    <span className={`font-semibold ${highContrast ? "text-yellow-400" : "text-slate-650"}`}>S+UM Architects</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -802,7 +806,15 @@ export default function FeedbackPortal() {
             </div>
 
             {/* Bottom Brand Action */}
-            <div className={`space-y-4 pt-4 border-t ${highContrast ? "border-yellow-400 border-dashed" : "border-slate-100"}`}>
+            <div className={`space-y-4 pt-4 border-t flex flex-col items-center ${highContrast ? "border-yellow-400 border-dashed" : "border-slate-100"}`}>
+              <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] font-bold tracking-wider uppercase border transition-all ${highContrast
+                ? "bg-black border-yellow-400 text-yellow-400"
+                : "bg-emerald-50/70 border-emerald-150 text-emerald-800"
+              }`}>
+                <Shield className="w-3 h-3 text-emerald-600 fill-emerald-600/10" />
+                <span>Logged with Ministry of Defence</span>
+              </div>
+
               <div className="flex flex-col items-center">
                 <span className={`text-lg font-black tracking-widest ${highContrast ? "text-yellow-400" : "text-slate-700"
                   }`}>
@@ -816,9 +828,9 @@ export default function FeedbackPortal() {
               <button
                 type="button"
                 onClick={handleReset}
-                className={`w-full py-3 rounded-full text-xs font-bold flex items-center justify-center gap-1.5 transition-all ${highContrast
-                    ? "bg-black border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black"
-                    : "border border-slate-200 hover:bg-slate-50 text-slate-700 bg-white"
+                className={`w-full py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all ${highContrast
+                  ? "bg-black border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black"
+                  : "border border-slate-200 hover:bg-slate-50 text-slate-700 bg-white"
                   }`}
               >
                 <span>Submit Another Feedback</span>
