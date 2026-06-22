@@ -110,11 +110,10 @@ const SOCIAL_CHANNELS = [
 ];
 
 const PROJECT_OPTIONS = [
-  "Project DEEPAK / 102 RCC",
-  "Project BEACON / 94 RCC",
-  "Project HIMANK / 81 RCC",
-  "Project VIJAYAK / 76 RCC",
-  "Project DANTEK / Bhutan",
+  "PROJECT DEEPAK / 108 RCC",
+  "PROJECT DEEPAK / 68 RCC",
+  "PROJECT DEEPAK / 94 RCC",
+  "PROJECT DEEPAK / 70 RCC",
 ];
 
 export default function FeedbackPortal() {
